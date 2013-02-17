@@ -1,6 +1,10 @@
-package org.juliendelrio.taug.discoverwidgets;
+package org.juliendelrio.taug.discoverwidgets.activities;
+
+import org.juliendelrio.taug.discoverwidgets.R;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -10,8 +14,13 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 public class LauncherActivity extends SherlockFragmentActivity {
 
+	private enum TabType {
+		Discover, WidgetsList
+	}
+
 	private Tab tabDiscover;
 	private Tab tabWidgetsList;
+	private Fragment mCurrentFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +36,6 @@ public class LauncherActivity extends SherlockFragmentActivity {
 		setContentView(R.layout.activity_launcher);
 
 		// generate tabs
-
 		// Tab discover
 		tabDiscover = actionBar.newTab()
 				.setText(R.string.launcher_tab_discover)
@@ -40,28 +48,63 @@ public class LauncherActivity extends SherlockFragmentActivity {
 				.setTabListener(new LauncherTabListener());
 		actionBar.addTab(tabWidgetsList);
 
+		// Find objects instance
+		displayFragment(TabType.Discover);
 	}
 
 	class LauncherTabListener implements TabListener {
 
 		@Override
 		public void onTabSelected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
+			if (tab == tabDiscover) {
+				displayFragment(TabType.Discover);
+			} else if (tab == tabWidgetsList) {
+				displayFragment(TabType.WidgetsList);
+			}
 
 		}
 
 		@Override
 		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void onTabReselected(Tab tab, FragmentTransaction ft) {
-			// TODO Auto-generated method stub
 
 		}
 
+	}
+
+	private void displayFragment(TabType tab) {
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		FragmentTransaction fragmentTransaction = fragmentManager
+				.beginTransaction();
+
+		Fragment newFragment;
+		newFragment = fragmentManager.findFragmentByTag(tab.getClass()
+				.getSimpleName());
+		if (newFragment == null) {
+			switch (tab) {
+			case Discover:
+				newFragment = FragmentDiscover.newInstance();
+				break;
+			case WidgetsList:
+				newFragment = FragmentWidgetsList.newInstance();
+				break;
+			default:
+				break;
+			}
+		}
+		if (mCurrentFragment == null) {
+			fragmentTransaction.add(R.id.launcher_fragments_container,
+					newFragment, newFragment.getClass().getSimpleName());
+		} else {
+			fragmentTransaction.replace(R.id.launcher_fragments_container,
+					newFragment, newFragment.getClass().getSimpleName());
+		}
+		mCurrentFragment = newFragment;
+		fragmentTransaction.commit();
 	}
 
 }

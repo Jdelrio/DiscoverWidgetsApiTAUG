@@ -4,7 +4,17 @@
     <string name="app_name">Discover widgets API</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+
+    <!-- Launcher -->
     <string name="launcher_tab_discover">Discover</string>
     <string name="launcher_tab_widgetslist">Widgets List</string>
+    <string name="launcher_welcome">Welcome</string>
+
+    <!-- Common widgets -->
+    <string name="widget_common_initial">Initial</string>
+
+    <!-- Base Widget -->
+    <string name="widget_base_label">Base Widget</string>
+    <string name="widget_base_lastrefresh">Last refresh :</string>
 
 </resources>

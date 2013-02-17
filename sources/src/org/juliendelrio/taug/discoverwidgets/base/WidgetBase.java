@@ -12,7 +12,9 @@ import org.juliendelrio.taug.discoverwidgets.tools.WidgetDescriptor;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.widget.RemoteViews;
 
 public class WidgetBase extends AppWidgetProvider {
@@ -39,6 +41,11 @@ public class WidgetBase extends AppWidgetProvider {
 
 	@Override
 	public void onDeleted(Context context, int[] appWidgetIds) {
+		for (int i = 0; i < appWidgetIds.length; i++) {
+			WidgetDescriptor widgetDescriptor = new WidgetDescriptor(
+					appWidgetIds[i], this.getClass());
+			SharedPreferencesTools.removeWidget(context, widgetDescriptor);
+		}
 		super.onDeleted(context, appWidgetIds);
 	}
 
@@ -60,5 +67,26 @@ public class WidgetBase extends AppWidgetProvider {
 				+ " " + retour;
 		rviews.setTextViewText(R.id.widget_base_tvlastrefresh, textRefresh);
 		return rviews;
+	}
+
+	public static void setEnabled(Context context, boolean isChecked) {
+		PackageManager packageManager = context.getPackageManager();
+
+		// disable WidgetBaseBeforeICS
+		ComponentName componentNameBeforeICS = new ComponentName(context,
+				WidgetBaseBeforeICS.class.getName());
+		int stateBeforeICS = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+				: PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+		packageManager.setComponentEnabledSetting(componentNameBeforeICS,
+				stateBeforeICS, 0);
+
+		// disable WidgetBaseAfterICS
+		ComponentName componentNameAfterICS = new ComponentName(context,
+				WidgetBaseAfterICS.class.getName());
+		int stateAfterICS = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+				: PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+		packageManager.setComponentEnabledSetting(componentNameAfterICS,
+				stateAfterICS, 0);
+
 	}
 }

@@ -10,12 +10,38 @@
     <string name="launcher_tab_widgetslist">Widgets List</string>
     <string name="launcher_welcome">Welcome</string>
     <string name="launcher_widgetslist_available">Available widgets : </string>
+    <string name="launcher_app_info">
+<![CDATA[	<h2>General information</h2>
+
+	<p>This application is a support for the conference at Toulouse Android User Group about widgets.</p>
+
+	<h2>Information about the Toulouse Android User Group</h2>
+
+	<p>This is an association for the Android developers around Toulouse, in south of France.<br />
+The conference was done during a meetup about widgets and the news in JellyBean.</p>
+
+	<p>- <a href="http://toulouseaug.blogspot.fr/">Group website</a></p>
+
+	<p>- <a href="http://www.meetup.com/Toulouse-Android-User-Group/events/99682822/">Meetup page</a></p>
+
+	<h2>Information about this app</h2>
+
+	<p>This application is a support for the <a href="https://docs.google.com/presentation/d/1ERXGs72ro4jGrplGq0Pq08K5NaKZgTW9DAGlWXFIO8c/edit?usp=sharing">presentation</a> .</p>
+
+	<p>This application is currently on development.</p>
+
+	<p>The source code is available <a href="https://github.com/Jdelrio/DiscoverWidgetsApiTAUG">here</a> .</p>]]>
+    </string>
+    <string name="launcher_discover_activate">Activate</string>
+    <string name="launcher_part1_title">Part 1 : Base widgets</string>
 
     <!-- Common widgets -->
     <string name="widget_common_initial">Initial</string>
 
     <!-- Base Widget -->
     <string name="widget_base_label">Base Widget</string>
+    <string name="widget_base_label_before_ics">Base Widget bICS</string>
+    <string name="widget_base_label_after_ics">Base Widget aICS</string>
     <string name="widget_base_lastrefresh">Last refresh :</string>
 
 </resources>

@@ -39,6 +39,40 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_base" />
         </receiver>
+
+        <!-- Base Widget Before ICS -->
+        <receiver
+            android:name=".base.WidgetBaseBeforeICS"
+            android:label="@string/widget_base_label_before_ics" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_base_before_ics" />
+        </receiver>
+
+        <!-- Base Widget After ICS -->
+        <receiver
+            android:name=".base.WidgetBaseAfterICS"
+            android:label="@string/widget_base_label_after_ics" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_base_after_ics" />
+        </receiver>
     </application>
 
 </manifest>

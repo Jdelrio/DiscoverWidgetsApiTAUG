@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="size1_bICS">72dip</dimen>
+    <dimen name="size2_bICS">146dip</dimen>
+    <dimen name="size3_bICS">220dip</dimen>
+    <dimen name="size4_bICS">294dip</dimen>
+    <dimen name="size1_aICS">40dip</dimen>
+    <dimen name="size2_aICS">110dip</dimen>
+    <dimen name="size3_aICS">180dip</dimen>
+    <dimen name="size4_aICS">260dip</dimen>
+
+</resources>

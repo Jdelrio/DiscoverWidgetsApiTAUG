@@ -13,6 +13,10 @@ public class SharedPreferencesTools {
 	private static final String GENERAL_PREFS_FILE_NAME = "general_prefs";
 	private static final String PREF_WIDGETS_LIST = "pref_widgets_list";
 
+	public enum PreferenceKey {
+		Part1Activated
+	}
+
 	public static SharedPreferences getGeneralSettings(Context context) {
 		return context.getSharedPreferences(GENERAL_PREFS_FILE_NAME, 0);
 	}
@@ -24,10 +28,44 @@ public class SharedPreferencesTools {
 		editor.commit();
 	}
 
+	public static String get(final Context context, PreferenceKey key,
+			final String defaultValue) {
+		return get(context, key.name(), defaultValue);
+	}
+
+	public static void set(final Context context, PreferenceKey key,
+			final String defaultValue) {
+		set(context, key.name(), defaultValue);
+	}
+
 	public static String get(final Context context, String key,
 			final String defaultValue) {
 		SharedPreferences settings = getGeneralSettings(context);
 		return settings.getString(key, defaultValue);
+	}
+
+	public static void set(final Context context, String key,
+			final boolean value) {
+		SharedPreferences settings = getGeneralSettings(context);
+		final SharedPreferences.Editor editor = settings.edit();
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
+
+	public static boolean get(final Context context, PreferenceKey key,
+			final boolean defaultValue) {
+		return get(context, key.name(), defaultValue);
+	}
+
+	public static void set(final Context context, PreferenceKey key,
+			final boolean defaultValue) {
+		set(context, key.name(), defaultValue);
+	}
+
+	public static boolean get(final Context context, String key,
+			final boolean defaultValue) {
+		SharedPreferences settings = getGeneralSettings(context);
+		return settings.getBoolean(key, defaultValue);
 	}
 
 	public static void addWidget(Context context,

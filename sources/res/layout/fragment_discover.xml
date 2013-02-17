@@ -15,6 +15,51 @@
             android:layout_centerHorizontal="true"
             android:text="@string/launcher_welcome"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/launcher_tv_app_infos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/launcher_tv_welcome"
+            android:layout_margin="5dp"
+            android:text="TextView" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/launcher_tv_app_infos" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/laucher_part1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/launcher_part1_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <ToggleButton
+                android:id="@+id/launcher_part1_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/laucher_part1_title"
+                android:text="ToggleButton" />
+
+            <TextView
+                android:id="@+id/laucher_part1_activate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/launcher_part1_toggle"
+                android:layout_alignBottom="@+id/launcher_part1_toggle"
+                android:layout_alignLeft="@+id/laucher_part1_title"
+                android:text="@string/launcher_discover_activate"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </ScrollView>

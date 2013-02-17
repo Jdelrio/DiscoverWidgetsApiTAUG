@@ -1,0 +1,20 @@
+h2. General information
+
+This application is a support for the conference at Toulouse Android User Group about widgets.
+
+h2. Information about the Toulouse Android User Group
+
+This is an association for the Android developers around Toulouse, in south of France.
+The conference was done during a meetup about widgets and the news in JellyBean.
+
+- "Group website":http://toulouseaug.blogspot.fr/
+
+- "Meetup page":http://www.meetup.com/Toulouse-Android-User-Group/events/99682822/
+
+h2. Information about this app
+
+This application is a support for the "presentation":https://docs.google.com/presentation/d/1ERXGs72ro4jGrplGq0Pq08K5NaKZgTW9DAGlWXFIO8c/edit?usp=sharing .
+
+This application is currently on development.
+
+The source code is available "here":https://github.com/Jdelrio/DiscoverWidgetsApiTAUG .

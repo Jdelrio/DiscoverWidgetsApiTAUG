@@ -15,7 +15,17 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 public class LauncherActivity extends SherlockFragmentActivity {
 
 	private enum TabType {
-		Discover, WidgetsList
+		Discover(FragmentDiscover.class), WidgetsList(FragmentWidgetsList.class);
+
+		private Class<? extends Fragment> mFragmentClass;
+
+		private TabType(Class<? extends Fragment> fragmentClass) {
+			mFragmentClass = fragmentClass;
+		}
+
+		public Class<? extends Fragment> getFragmentClass() {
+			return mFragmentClass;
+		}
 	}
 
 	private Tab tabDiscover;
@@ -82,7 +92,7 @@ public class LauncherActivity extends SherlockFragmentActivity {
 				.beginTransaction();
 
 		Fragment newFragment;
-		newFragment = fragmentManager.findFragmentByTag(tab.getClass()
+		newFragment = fragmentManager.findFragmentByTag(tab.getFragmentClass()
 				.getSimpleName());
 		if (newFragment == null) {
 			switch (tab) {

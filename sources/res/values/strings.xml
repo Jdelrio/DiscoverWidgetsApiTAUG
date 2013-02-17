@@ -9,6 +9,7 @@
     <string name="launcher_tab_discover">Discover</string>
     <string name="launcher_tab_widgetslist">Widgets List</string>
     <string name="launcher_welcome">Welcome</string>
+    <string name="launcher_widgetslist_available">Available widgets : </string>
 
     <!-- Common widgets -->
     <string name="widget_common_initial">Initial</string>

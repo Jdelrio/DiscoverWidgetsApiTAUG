@@ -1,9 +1,9 @@
 package org.juliendelrio.taug.discoverwidgets.activities;
 
 import org.juliendelrio.taug.discoverwidgets.R;
-import org.juliendelrio.taug.discoverwidgets.base.WidgetBase;
 import org.juliendelrio.taug.discoverwidgets.tools.SharedPreferencesTools;
 import org.juliendelrio.taug.discoverwidgets.tools.SharedPreferencesTools.PreferenceKey;
+import org.juliendelrio.taug.discoverwidgets.widgets.WidgetBase;
 
 import android.os.Bundle;
 import android.text.Html;

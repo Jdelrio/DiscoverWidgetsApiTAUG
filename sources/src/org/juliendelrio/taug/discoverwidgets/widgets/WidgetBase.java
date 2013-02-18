@@ -1,4 +1,4 @@
-package org.juliendelrio.taug.discoverwidgets.base;
+package org.juliendelrio.taug.discoverwidgets.widgets;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -74,19 +74,27 @@ public class WidgetBase extends AppWidgetProvider {
 
 		// disable WidgetBaseBeforeICS
 		ComponentName componentNameBeforeICS = new ComponentName(context,
-				WidgetBaseBeforeICS.class.getName());
-		int stateBeforeICS = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-				: PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+				WidgetBaseBeforeICS.class);
+		int stateBeforeICS;
+		if (isChecked) {
+			stateBeforeICS = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+		} else {
+			stateBeforeICS = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+		}
 		packageManager.setComponentEnabledSetting(componentNameBeforeICS,
-				stateBeforeICS, 0);
+				stateBeforeICS, PackageManager.DONT_KILL_APP);
 
 		// disable WidgetBaseAfterICS
 		ComponentName componentNameAfterICS = new ComponentName(context,
-				WidgetBaseAfterICS.class.getName());
-		int stateAfterICS = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-				: PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+				WidgetBaseAfterICS.class);
+		int stateAfterICS;
+		if (isChecked) {
+			stateAfterICS = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+		} else {
+			stateAfterICS = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+		}
 		packageManager.setComponentEnabledSetting(componentNameAfterICS,
-				stateAfterICS, 0);
+				stateAfterICS, PackageManager.DONT_KILL_APP);
 
 	}
 }

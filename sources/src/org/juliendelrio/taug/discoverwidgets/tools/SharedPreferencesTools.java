@@ -14,7 +14,7 @@ public class SharedPreferencesTools {
 	private static final String PREF_WIDGETS_LIST = "pref_widgets_list";
 
 	public enum PreferenceKey {
-		Part1Activated
+		Part1Activated, Initialized, InstalledVersion
 	}
 
 	public static SharedPreferences getGeneralSettings(Context context) {
@@ -36,6 +36,29 @@ public class SharedPreferencesTools {
 	public static void set(final Context context, PreferenceKey key,
 			final String defaultValue) {
 		set(context, key.name(), defaultValue);
+	}
+
+	public static int get(final Context context, PreferenceKey key,
+			final int defaultValue) {
+		return get(context, key.name(), defaultValue);
+	}
+
+	public static void set(final Context context, PreferenceKey key,
+			final int defaultValue) {
+		set(context, key.name(), defaultValue);
+	}
+
+	public static int get(final Context context, String key,
+			final int defaultValue) {
+		SharedPreferences settings = getGeneralSettings(context);
+		return settings.getInt(key, defaultValue);
+	}
+
+	public static void set(final Context context, String key, final int value) {
+		SharedPreferences settings = getGeneralSettings(context);
+		final SharedPreferences.Editor editor = settings.edit();
+		editor.putInt(key, value);
+		editor.commit();
 	}
 
 	public static String get(final Context context, String key,

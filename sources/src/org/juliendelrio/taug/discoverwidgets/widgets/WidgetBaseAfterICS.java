@@ -1,4 +1,4 @@
-package org.juliendelrio.taug.discoverwidgets.base;
+package org.juliendelrio.taug.discoverwidgets.widgets;
 
 public class WidgetBaseAfterICS extends WidgetBase {
 }

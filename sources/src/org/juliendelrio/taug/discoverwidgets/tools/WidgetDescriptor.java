@@ -36,6 +36,7 @@ public class WidgetDescriptor implements Parcelable {
 
 	protected WidgetDescriptor(Parcel in) {
 		mWidgetId = in.readInt();
+		mWidgetClass = in.readString();
 	}
 
 	public int describeContents() {
@@ -44,6 +45,7 @@ public class WidgetDescriptor implements Parcelable {
 
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeInt(mWidgetId);
+		dest.writeString(mWidgetClass);
 	}
 
 	public static final Parcelable.Creator<WidgetDescriptor> CREATOR = new Parcelable.Creator<WidgetDescriptor>() {
@@ -89,11 +91,15 @@ public class WidgetDescriptor implements Parcelable {
 		return mWidgetClass + STORABLE_SEPARATOR + mWidgetId;
 	}
 
+	public String getStorableStringForComplement() {
+		return "";
+	}
+
 	public static WidgetDescriptor getWidgetDescriptionFromStorableString(
 			String source) {
 		String[] separateString = source.split(STORABLE_SEPARATOR);
 
-		if (separateString.length == 2) {
+		if (separateString.length > 2) {
 			int widgetId = Integer.parseInt(separateString[1]);
 			String widgetClass = separateString[0];
 			try {

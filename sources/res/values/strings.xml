@@ -39,9 +39,15 @@ The conference was done during a meetup about widgets and the news in JellyBean.
     <string name="widget_common_initial">Initial</string>
 
     <!-- Base Widget -->
-    <string name="widget_base_label">Base Widget</string>
-    <string name="widget_base_label_before_ics">Base Widget bICS</string>
-    <string name="widget_base_label_after_ics">Base Widget aICS</string>
+    <string name="widget_base_label">TAUG Base Widget</string>
+    <string name="widget_base_label_before_ics">TAUG Base Widget bICS</string>
+    <string name="widget_base_label_after_ics">TAUG Base Widget aICS</string>
     <string name="widget_base_lastrefresh">Last refresh :</string>
+
+    <!-- Conf Activity Widget -->
+    <string name="widget_conf_activity_label">TAUG Configurable Widget</string>
+    <string name="conf_activity_label">Name :</string>
+    <string name="conf_activity_hidebg">Hide Background</string>
+    <string name="conf_activity_text">Displayed text :</string>
 
 </resources>

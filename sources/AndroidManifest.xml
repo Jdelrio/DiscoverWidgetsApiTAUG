@@ -16,11 +16,24 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="org.juliendelrio.taug.discoverwidgets.activities.LauncherActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.juliendelrio.taug.discoverwidgets.activities.WidgetConfigurationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppBaseTheme.ActivityConf" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+                <action android:name="com.levelup.beautifulwidgets.ACTION_CONFIGURE_WITH_EXTRA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -29,7 +42,6 @@
             android:name="org.juliendelrio.taug.discoverwidgets.widgets.WidgetBase"
             android:label="@string/widget_base_label" >
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
@@ -47,7 +59,6 @@
             android:label="@string/widget_base_label_before_ics" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
@@ -64,7 +75,6 @@
             android:label="@string/widget_base_label_after_ics" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
                 <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
@@ -73,6 +83,22 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_base_after_ics" />
+        </receiver>
+        <!-- Activity Widget -->
+        <receiver
+            android:name="org.juliendelrio.taug.discoverwidgets.widgets.WidgetActivity"
+            android:label="@string/widget_conf_activity_label" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_confactivity" />
         </receiver>
     </application>
 

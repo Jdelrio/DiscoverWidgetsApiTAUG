@@ -57,8 +57,8 @@ public class WidgetBase extends AppWidgetProvider {
 	public RemoteViews buildUpdate(Context context, int appWidgetId) {
 		RemoteViews rviews = new RemoteViews(context.getPackageName(),
 				R.layout.widgets_base_layout);
-		CharSequence textLabel = context.getText(R.string.widget_base_label)
-				+ " " + appWidgetId;
+		CharSequence textLabel = context.getText(getBaseLabelId()) + " "
+				+ appWidgetId;
 		rviews.setTextViewText(R.id.widget_base_tvlabel, textLabel);
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM hh:mm",
 				Locale.getDefault());
@@ -67,6 +67,10 @@ public class WidgetBase extends AppWidgetProvider {
 				+ " " + retour;
 		rviews.setTextViewText(R.id.widget_base_tvlastrefresh, textRefresh);
 		return rviews;
+	}
+
+	protected int getBaseLabelId() {
+		return R.string.widget_base_label;
 	}
 
 	public static void setEnabled(Context context, boolean isChecked) {

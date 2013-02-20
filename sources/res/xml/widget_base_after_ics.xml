@@ -6,7 +6,7 @@
     android:minWidth="@dimen/size2_aICS"
     android:previewImage="@drawable/ic_launcher"
     android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="60000"
+    android:updatePeriodMillis="1800000"
     android:widgetCategory="home_screen|keyguard" >
 
 </appwidget-provider>

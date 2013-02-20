@@ -8,6 +8,7 @@ import org.juliendelrio.taug.discoverwidgets.widgets.WidgetActivity;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,8 @@ public class WidgetConfigurationActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				Context context = v.getContext();
+
 				// Save Result
 				int widgetId = mAppWidgetId;
 				Class<? extends AppWidgetProvider> widgetClass = WidgetActivity.class;
@@ -56,6 +59,13 @@ public class WidgetConfigurationActivity extends Activity {
 				SharedPreferencesTools.set(v.getContext(),
 						widget.getStorableString(),
 						widget.getStorableStringForComplement());
+
+				WidgetActivity widgetActivity = new WidgetActivity();
+				int[] appWidgetIds = { widgetId };
+				AppWidgetManager appWidgetManager = AppWidgetManager
+						.getInstance(context);
+				widgetActivity
+						.onUpdate(context, appWidgetManager, appWidgetIds);
 
 				// Send result
 				Intent resultValue = new Intent();

@@ -99,7 +99,7 @@ public class WidgetDescriptor implements Parcelable {
 			String source) {
 		String[] separateString = source.split(STORABLE_SEPARATOR);
 
-		if (separateString.length > 2) {
+		if (separateString.length >= 2) {
 			int widgetId = Integer.parseInt(separateString[1]);
 			String widgetClass = separateString[0];
 			try {

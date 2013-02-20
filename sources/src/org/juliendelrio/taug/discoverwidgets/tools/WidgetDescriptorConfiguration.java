@@ -71,9 +71,9 @@ public class WidgetDescriptorConfiguration extends WidgetDescriptor {
 				workingWidget.getStorableString(), "");
 		String[] separateString = source.split(STORABLE_SEPARATOR);
 
-		if (separateString.length > 2) {
-			isBgHidden = Boolean.parseBoolean(separateString[1]);
-			customText = separateString[0];
+		if (separateString.length >= 2) {
+			isBgHidden = Boolean.parseBoolean(separateString[0]);
+			customText = separateString[1];
 		} else {
 			return null;
 		}
